@@ -1,0 +1,189 @@
+
+CREATE DATABASE Non_Vaccinated_Information;
+
+CREATE TABLE Student(
+    NID_Birth_Certificate varchar(20) NOT NULL,
+    Name varchar(40),
+    Address varchar(50),
+    Phone_No varchar(11),
+    Date_Of_Birth Date,
+    PRIMARY KEY(NID_Birth_Certificate)
+    );
+
+
+CREATE TABLE NSUer(
+    NSU_id int(10) NOT NULL,
+    NID_Birth_Certificate varchar(20),
+    PRIMARY KEY(NSU_id),
+    FOREIGN KEY(NID_Birth_Certificate) REFERENCES Student(NID_Birth_Certificate)
+    );
+
+CREATE TABLE Faculty(
+    NID varchar(20) NOT NULL,
+    Name varchar(40),
+    Address varchar(50),
+    Phone_No varchar(11),
+    Date_Of_Birth Date,
+    PRIMARY KEY(NID)
+    );
+
+CREATE TABLE NSU_Faculty(
+    NSU_Faculty_id int(10) NOT NULL,
+    Faculty_Initial varchar(6),
+    NID varchar(20),
+    PRIMARY KEY(NSU_Faculty_id),
+    FOREIGN KEY(NID) REFERENCES Faculty(NID)
+    );
+
+CREATE TABLE Admin_Officials(
+    NID varchar(20) NOT NULL,
+    Name varchar(40),
+    Address varchar(50),
+    Phone_No varchar(11),
+    Date_Of_Birth Date,
+    PRIMARY KEY(NID)
+    );
+
+CREATE TABLE Admin(
+    Admin_id int(10) NOT NULL,
+    NID varchar(20),
+    PRIMARY KEY(Admin_id),
+    FOREIGN KEY(NID) REFERENCES Admin_Officials(NID)
+    );
+
+
+CREATE DATABASE Vaccinated_Information;
+
+
+CREATE TABLE Student(
+    NID_Birth_Certificate varchar(20) NOT NULL,
+    Name varchar(40),
+    Address varchar(50),
+    Phone_No varchar(11),
+    Date_Of_Birth Date,
+    DoseDate1 Date,
+    DoseDate2 Date,
+    PRIMARY KEY(NID_Birth_Certificate)
+    );
+
+
+CREATE TABLE NSUer(
+    NSU_id int(10) NOT NULL,
+    NID_Birth_Certificate varchar(20),
+    PRIMARY KEY(NSU_id),
+    FOREIGN KEY(NID_Birth_Certificate) REFERENCES Student(NID_Birth_Certificate)
+    );
+
+CREATE TABLE Faculty(
+    NID varchar(20) NOT NULL,
+    Name varchar(40),
+    Address varchar(50),
+    Phone_No varchar(11),
+    Date_Of_Birth Date,
+    DoseDate1 Date,
+    DoseDate2 Date,
+    PRIMARY KEY(NID)
+    );
+
+CREATE TABLE NSU_Faculty(
+    NSU_Faculty_id int(10) NOT NULL,
+    Faculty_Initial varchar(6),
+    NID varchar(20),
+    PRIMARY KEY(NSU_Faculty_id),
+    FOREIGN KEY(NID) REFERENCES Faculty(NID)
+    );
+
+CREATE TABLE Admin_Officials(
+    NID varchar(20) NOT NULL,
+    Name varchar(40),
+    Address varchar(50),
+    Phone_No varchar(11),
+    Date_Of_Birth Date,
+    DoseDate1 Date,
+    DoseDate2 Date,
+    PRIMARY KEY(NID)
+    );
+
+CREATE TABLE Admin(
+    Admin_id int(10) NOT NULL,
+    NID varchar(20),
+    PRIMARY KEY(Admin_id),
+    FOREIGN KEY(NID) REFERENCES Admin_Officials(NID)
+    );
+
+==========================================================================
+
+INSERT INTO `faculty`(`NID`, `Name`, `Address`, `Phone_No`, `Date_Of_Birth`) VALUES
+('999633365454','Chaiyem Raiyan','97/3 Shantinagar, Dhaka - 1217','01701353659','1990-02-22'), 
+('977543365464','Hakim Raiyan','97/3 Nayapaltan, Dhaka - 1217','01702653659','1980-02-21'),
+('917433365454','Achaim Raiyan','97/3 Purana Paltan, Dhaka - 1217','01945353659','1975-08-22'),
+('78693365454','Mira Raiyan','97/3 Gulshan, Dhaka - 1201','01785353659','1978-01-26'),
+('11125369873','Bill Gates','700/3 Shantinagar, Dhaka - 1217','01523553659','1990-02-22'),
+('979630065454','Chaiyem Mofiz','503/9/A Kafrul, Dhaka - 1215','01701353659','1995-11-22'),
+('989689564354','Kuddus Alam','905 Agargaon, Dhaka - 1212','01756893659','1981-08-20'),
+('997895865894','Yemete kudusai','97/3 Arambag, Dhaka - 1017','01325683659','1985-05-12'),
+('125893365454','Xiao Han','999 Motijheel, Dhaka - 1210','01325353659','1980-02-03');
+
+
+
+INSERT INTO `nsu_faculty`(`NSU_Faculty_id`, `Faculty_Initial`, `NID`) VALUES
+('5455','CaR','999633365454'),
+('5898','HaR2','977543365464'),
+('5598','AchR','917433365454'),
+('5478','MRa','78693365454'),
+('6468','BiG','11125369873'),
+('5968','KuA','989689564354'),
+('4868','ChMo','979630065454'),
+('3568','YeK','997895865894'),
+('5068','XiH1','125893365454');
+
+
+
+INSERT INTO `student`(`NID_Birth_Certificate`, `Name`, `Address`, `Phone_No`, `Date_Of_Birth`) VALUES
+('201222233', 'Saiyem Raiyan', 'Shantinagar, Dhaka', '01922233884','2000/01/01'),
+('1954758985', 'Raiyan', 'Bashundhara, Dhaka', '0171554874','1999/11/11'),
+('2115458975', 'Ayman Hakim', 'Sobhanbagh, Dhaka', '01914444587','2000/01/04'),
+('2015556987', 'Waliullah Mahir', 'Bashundhara, Dhaka', '01958745632','1999/05/12'),
+('2115479856', 'Zamil', 'Dhanmondi, Dhaka', '01745532256','1999/01/02'),
+('1987555662', 'Himel', 'Gulshan, Dhaka', '01712256485','1999/01/22'),
+('1812545601', 'Peter Parker', 'Dhanmondi, Dhaka', '01963252104','1998/12/02'),
+('1982365475', 'Mary Jane', 'Uttara, Dhaka', '01614552565','2000/11/19'),
+('1726584584', 'Shahrukh Khan', 'Uttara, Dhaka', '01912546587','1997/11/02'),
+('1923654754', 'Kabir Khan', 'Dhanmondi, Dhaka', '01711254569','2000/02/14'),
+('2021454785', 'Katrina Kaif', 'Bashundhara, Dhaka', '01812545685','1999/01/12'),
+('20214569854', 'Shakib Al Hasan', 'Gulshan, Dhaka', '01911254652','2000/10/20');
+
+
+
+INSERT INTO `nsuer`(`NSU_id`, `NID_Birth_Certificate`) VALUES 
+('1585645789','1726584584'),
+('2025645064','1812545601'),
+('1225645642','1923654754'),
+('1915645258','1954758985'),
+('1805640014','1982365475'),
+('1625600789','1987555662'),
+('2129995064','201222233'),
+('2225000642','2015556987'),
+('1025875258','2115458975'),
+('2015640014','2115479856');
+
+
+
+INSERT INTO `admin_officials`(`NID`, `Name`, `Address`, `Phone_No`, `Date_Of_Birth`) VALUES 
+('5648791524555','Aysha Banu','32/A Dhanmondi, Dhaka-1212','01523487965','1980-02-25'),
+('4876891524555','Tanvir Ahmed','325 Kolabagan, Dhaka-1202','01893487965','1975-01-20'),
+('5648715684555','Sumaita Shaira','332/B Polton, Dhaka-1215','01548087965','1985-03-21'),
+('5648791524489','Ruman Sarwar','32/3/A Basundhara R/A, Dhaka-1216','01356487965','1977-04-19'),
+('9648791001256','Rakibul Hasan ','632/A Dhanmondi, Dhaka-1210','01777879605','1964-05-15'),
+('6668795897522','Shovon Hasan','598 Kafrul, Dhaka-1207','01568779600','1988-09-05'),
+('1286648791500','Ms. Mitali Basu','382/A Shymoli, Dhaka-1207','01499487965','1979-10-11'),
+('7531546895422','Ashfia Binte Habib','568 Badda, Dhaka-1211','01555688965','1965-12-29');
+
+
+
+INSERT INTO `admin`(`Admin_id`, `NID`) VALUES 
+('16789568','5648791524555'),
+('24889578','5648791524489'),
+('16486510','7531546895422'),
+('17956243','6668795897522'),
+('21686700','4876891524555');
