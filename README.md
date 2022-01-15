@@ -5,3 +5,6 @@ Project created by
   Backend: Sheikh Mohammed Wali Ullah, Zobaer Ahammod Zamil
 
 Project was for DBMS course in B.S NSU in CSE
+
+Watch the Video to get a better idea
+
